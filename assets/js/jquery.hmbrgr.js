@@ -1,5 +1,5 @@
 /*!
- * jquery-hmbrgr.js v0.0.1
+ * jquery-hmbrgr.js v0.0.2
  * https://github.com/MorenoDiDomenico/jquery-hmbrgr
  *
  * Copyright 2015, Moreno Di Domenico
@@ -51,6 +51,7 @@
 
     function hmbrgrSpanReset(el){
       $(el)
+      .data('clickable', true)
       .find('span').eq(0).css({
         'top' : posTop
       });
@@ -69,12 +70,18 @@
     function hmbrgrCommand(el){
       $(el).on('click', function(e){
         e.preventDefault();
-        $(el).toggleClass('cross');
 
-        if( $(el).hasClass('cross') )
-          hmbrgrExpand(el);
-        else
-          hmbrgrCollapse(el);
+        if($(this).data('clickable')){
+
+          $(this).data('clickable', false);
+          
+          $(el).toggleClass('cross');
+
+          if( $(el).hasClass('cross') )
+            hmbrgrExpand(el);
+          else
+            hmbrgrCollapse(el);
+        }
       });
     }
 
@@ -84,7 +91,7 @@
       });
 
       setTimeout(function(){
-        $(el).addClass(config.animation);
+        $(el).addClass(config.animation).data('clickable', true);
         $.isFunction(config.onOpen) && config.onOpen.call(this);
       }, config.speed);
     }
