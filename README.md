@@ -34,10 +34,10 @@ jQuery Plugin To Create Hamburger Nav Icons using CSS3
 		speed     : 200,		// optional - set animation speed
 		barHeight : 8,			// optional - set bars height
 		barRadius : 0,			// optional - set bars border radius
-		barColor  : '#ffffff'	// optional - set bars color
-		onInit    : function(),	// optional - callback when the hamburger is initialize
-		onOpen    : function(),	// optional - callback when the hamburger is opening
-		onClose   : function()	// optional - callback when the hamburger is closing
+		barColor  : '#ffffff',	// optional - set bars color
+		onInit    : function(){},	// optional - callback when the hamburger is initialize
+		onOpen    : function(){},	// optional - callback when the hamburger is opening
+		onClose   : function(){}	// optional - callback when the hamburger is closing
 	});    
  ```
 
